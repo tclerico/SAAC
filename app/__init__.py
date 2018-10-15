@@ -45,4 +45,4 @@ if not app.debug:
     app.logger.info('Microblog startup')
 
 
-from app import routes, models
+from app import routes, models, errors
