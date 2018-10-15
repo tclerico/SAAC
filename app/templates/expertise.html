@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script type="text/javascript">
+
+//populates drop down lists
+$(function () {
+    $(document).ready(function () {
+        $.getJSON($SCRIPT_ROOT + '/_populate',[],function (data) {
+            $.each(data.subjects,function (index,value) {
+                var sub = data.subjects[index][1];
+                var option = '<option value='+sub+'>'+data.subjects[index][0]+'</option>';
+                $("#dynamic").append(option);
+            });
+            $.each(data.fields, function (index,value){
+                var field = data.fields[index];
+                var option = '<option value='+field+'>'+field+'</option'
+                $("#current").append(option)
+            })
+        });
+    });
+});
+
+
+{#Functions to add/remove from the dropdowns#}
+$(function () {
+    $("#add").click(function () {
+    var course = $("#dynamic").find(":selected").val();
+    console.log(course);
+    var level = $("#level").find(":selected").val();
+    var option = '<option value='+course+'-'+level+'>'+course+' '+level+'</option>';
+    $("#current").append(option);
+    });
+});
+$(function (){
+    $("#remove").click(function () {
+        $("#current").find(":selected").remove();
+    });
+});
+
+$(function () {
+    $("#submit").click(function () {
+        var arr = [];
+        $("#current option").each(function () {
+            arr.push($(this).val());
+            console.log($(this).val())
+        });
+        var choices = JSON.stringify(arr);
+        console.log(choices);
+
+        var request = $.ajax({
+            type: "POST",
+            contentType:"application/json; charset=utf-8",
+            url: "/_process",
+            dataType: "json",
+            data: choices,
+            success: function (response) {
+                console.log('Success');
+                if (response.redirect){
+                    window.location.href = response.redirect;
+                }
+            }
+        });
+        request.done(function () {
+           console.log("Good Job")
+        });
+        request.fail(function (jqXHR, textStatus) {
+            console.log("FAILED: "+textStatus );
+        });
+
+    });
+});
+
+</script>
+
+    <form action="" method="post">
+
+        <p>
+            <select id="dynamic"></select>
+
+            <select id="level">
+                <option value="100">100 Level</option>
+                <option value="200">200 Level</option>
+                <option value="300">300 Level</option>
+                <option value="400">400 Level</option>
+            </select>
+             <button type="button" id="add">Add</button>
+        </p>
+        <p>
+            <select id="current"></select>
+            <button type="button" id="remove">Remove</button>
+        </p>
+
+        <p><button type="button" id="submit">Submit</button> </p>
+
+    </form>
+
+
+{% endblock %}

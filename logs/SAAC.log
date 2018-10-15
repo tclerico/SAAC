@@ -1,0 +1,98 @@
+2018-10-13 18:28:17,274 ERROR: Exception on /_removePost [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1170, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 506, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 93, in remove_post
+    nm = User.query.get(current_user.id)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 306, in _get_current_object
+    return self.__local()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/Users/timc/PycharmProjects/SAAC/app/models.py", line 61, in load_user
+    return User.query.get(int(id))
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 923, in get
+    ident, loading.load_on_pk_identity)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1006, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 250, in load_on_pk_identity
+    return q.one()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2947, in one
+    ret = self.one_or_none()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2917, in one_or_none
+    ret = list(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2987, in __iter__
+    self.session._autoflush()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1444, in _autoflush
+    util.raise_from_cause(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1434, in _autoflush
+    self.flush()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+    uow
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 768, in _emit_update_statements
+    execute(statement, multiparams)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1170, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 506, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.OperationalError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (sqlite3.OperationalError) database is locked [SQL: 'UPDATE request SET is_active=? WHERE request.id = ?'] [parameters: ((0, 11), (0, 19))] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-10-14 17:18:03,804 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-14 17:18:36,672 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]

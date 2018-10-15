@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{%  block content %}
+    <script type="text/javascript">
+//populate the checkboxes for requests
+$(function () {
+    $(document).ready(function () {
+        $.getJSON($SCRIPT_ROOT + '/_user_requests', [], function (data) {
+            $.each(data.requests, function (index, value) {
+                var title = data.requests[index][1];
+                console.log(title);
+                var id = data.requests[index][0];
+                console.log(id);
+                var req = '<input class="current" type="checkbox" value=' + id + ' >' + title + '<br>';
+                $("#posts").append(req)
+            })
+        });
+    });
+});
+
+$(function () {
+    $("#resolve").click(function () {
+        var arr = [];
+        $(".current:checked").each(function () {
+            var info = $(this).val();
+            arr.push(info);
+        });
+        var selected = JSON.stringify(arr);
+        console.log(selected)
+
+        var request = $.ajax({
+            type: "POST",
+            contentType:"application/json; charset=utf-8",
+            url:"/_removePost",
+            dataType: "json",
+            data: selected,
+            success: function (response) {
+                console.log('success');
+                if (response.redirect){
+                    window.location.href = response.redirect;
+                }
+            }
+        });
+    });
+})
+
+
+    </script>
+
+
+
+    <h1>{{ user.name }}</h1>
+    <h3>Your Areas of Expertise:</h3>
+    <ul>
+        {% for field in user.fields %}
+        <li>{{ field }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+    <p>
+        <span>Edit Your Account:</span><br>
+        <a href="{{ url_for('expertise') }}">Click Here</a>
+    </p>
+
+
+    <h3>Your Posts:</h3>
+
+    <div id="posts">
+
+    </div>
+    <button type="button" id="resolve">Resolve</button>
+
+
+{#    {% for request in requests %}#}
+{##}
+{#    <table>#}
+{#        <tr valign="top">#}
+{##}
+{#            <td>#}
+{#                <a href="{{ url_for('indiv_request',id=request.id) }}"><b>{{ request.title }}</b></a><br>#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+{##}
+{#    {% endfor %}#}
+
+{% endblock %}

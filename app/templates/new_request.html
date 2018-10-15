@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        <span>Course Prefix</span><br>
+        {{ form.c_prefix(size=32) }}
+        {% for error in form.c_prefix.errors %}
+        <span style="color: red">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        <span>Course Number</span><br>
+        {{ form.c_number(size=32) }}
+        {% for error in form.c_number.errors %}
+        <span style="color: red">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        <span>Title</span><br>
+        {{ form.title(size=64) }}
+        {% for error in form.title.errors %}
+        <span style="color: red">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        <span>Description</span><br>
+        {{ form.description(rows='20',cols='128') }}
+        {% for error in form.description.errors %}
+        <span style="color: red">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+
+
+</form>
+
+
+{% endblock %}

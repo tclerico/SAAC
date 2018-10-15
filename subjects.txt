@@ -1,0 +1,68 @@
+Accounting,ACCT
+Anthropology,ANTH
+Arabic,ARAB
+Art,ART
+Art History,ARTH
+Astronomy,ASTR
+Biochemistry,BIOC
+Biology,BIOL
+Business Grad,BGRD
+Business Interdisc Studies,BINT
+Chemistry,CHEM
+Chinese,CHIN
+Cinema and Photography,CNPH
+Communication Studies,CMST
+Computer Science,COMP
+Culture and Communication,CLTC
+ Culture Race and Ethnicity,CSCR
+Dance,DNCE
+Economics,ECON
+Education,EDUC
+English,ENGL
+Environmental Studies,ENVS
+Exercise and Sports Sciences,EXSS
+Finance,FINA
+French,FREN
+General Business,GBUS
+General Communications,GCOM
+German,GERM
+Gerontology,GERO
+Health,HLTH
+Health Interdisc Studies,HINT
+Hebrew,HEBR
+History,HIST
+Image Text,IMTX
+Integrative Studies,INST
+International Business,INTB
+Italian,ITAL
+Jazz Studies,JAZZ
+Jewish Studies,JWST
+Journalism,JOUR
+Languages,LNGS
+Latin,LATN
+Legal Studies,LGST
+ Management,MGMT
+Marketing,MKTG
+Mathematics,MATH
+Media Arts Sciences & Studies,MASS
+Music Education,MUED
+Music Non Major,MUNM
+Music Sound Recording Tech,MSRT
+Occupational Therapy,OTBS
+Philosophy,PHIL
+Physical Therapy,PDPT
+Physics,PHYS
+Politics,POLT
+Psychology,PSYC
+Religious Studies,RLST
+Sociology,SOCI
+Spanish,SPAN
+Speech Lang Path & Audio,SLPA
+Sport Management,SMGT
+Sport Studies,SPST
+Sports Media,SPME
+Strategic Communication,STCM
+Television Radio,TVR
+Theatre Arts,THEA
+Women’s and Gender Studies,WGST
+Writing,WRTG
