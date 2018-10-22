@@ -1,6 +1,7 @@
-from app import app, db
+from app import app, db, email
+from app.email import *
 from flask import render_template, flash, redirect, url_for, request, jsonify
-from app.forms import LoginForm, NewRequestForm, RegistrationForm
+from app.forms import LoginForm, NewRequestForm, RegistrationForm, ResetPasswordRequest, ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Request, Expertise
 from app.services import *
@@ -45,6 +46,33 @@ def register():
         return redirect(url_for('expertise'))
     return render_template('register.html', title='Register', form=form)
 
+@app.route('/reset_password_request', methods=['GET','POST'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = ResetPasswordRequest()
+    if form.validate():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash('Check your email for the instructions to reset your password')
+        return redirect(url_for('login'))
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    user = User.verify_reset_password_token(token)
+    if not user:
+        return redirect(url_for('index'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+        flash('Your password has been reset.')
+        return redirect(url_for('login'))
+    return render_template('reset_password.html', form=form)
 
 #route for adding expertise after registration
 @app.route('/expertise', methods=['GET','POST'])
@@ -92,7 +120,7 @@ def remove_post():
         db.session.commit()
 
         nm = User.query.get(current_user.id)
-        return jsonify(dict(redirect=url_for('resolution', sent=sent)))
+        return jsonify(dict(redirect=url_for('account', name=nm.name)))
 
 #route to process a change in a users expertise selections
 #used in edit user and

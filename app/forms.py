@@ -4,7 +4,6 @@ from wtforms.validators import  DataRequired, Email, EqualTo, ValidationError
 from app.models import User, Expertise
 
 
-
 #custom validator to ensure email entered is '@ithaca.edu'
 class icEmail(object):
     def __init__(self, email="ithaca.edu", message=None):
@@ -22,7 +21,9 @@ class icEmail(object):
         if email != self.email :
             raise ValidationError(self.message)
 
+
 icmail = icEmail
+
 
 #login form class
 class LoginForm(FlaskForm):
@@ -41,6 +42,7 @@ class NewRequestForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+
 #registration form class
 class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email(), icmail()])
@@ -53,11 +55,22 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Register')
 
 
-
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('That email is already in use')
+
+
+class ResetPasswordRequest(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), icmail()])
+    submit = SubmitField('Request Password Reset')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
 
 
 class ResolutionForm(FlaskForm):
