@@ -1,8 +1,8 @@
-{% extends "base.html" %}
-
-{% block app_content %}
-
-<h1>List of Requests</h1>
+<p>Dear {{ user.name }}</p>
+<p>
+    Below are the posts from the past week:
+</p>
+<p>
     <ul>
     {% for request in requests %}
         {% if request.is_active %}
@@ -10,5 +10,4 @@
         {% endif %}
     {% endfor %}
     </ul>
-
-{% endblock %}
+</p>

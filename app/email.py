@@ -24,3 +24,13 @@ def send_password_reset_email(user):
                                          user=user, token=token),
                html_body=render_template('email/reset_password.html',
                                          user=user, token=token))
+
+
+def send_news_letter(user, requests):
+    send_email('This Weeks Requests',
+               sender=app.config['ADMINS'][0],
+               recipients=[user.email],
+               text_body=render_template('email/news_letter.txt',
+                                         user=user, requests=requests),
+               html_body=render_template('email/news_letter.html',
+                                         user=user, requests=requests))
