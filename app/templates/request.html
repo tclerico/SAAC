@@ -3,7 +3,7 @@
 {% block app_content %}
 
 <h1>{{ req.title }}</h1>
-<span>{{ req.author }},  {{ req.timestamp }}</span>
+<span>{{ req.author.name }},  {{ req.timestamp }}</span>
 <p>{{ req.description }}</p>
 
 {% endblock %}

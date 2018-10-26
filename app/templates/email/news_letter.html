@@ -6,7 +6,7 @@
     <ul>
     {% for request in requests %}
         {% if request.is_active %}
-        <li><a href="{{ url_for('indiv_request', id=request.id) }}">{{ request.title }}</a></li>
+        <li><a href="{{ url_for('indiv_request', id=request.id, _external=True) }}">{{ request.title }}</a></li>
         {% endif %}
     {% endfor %}
     </ul>

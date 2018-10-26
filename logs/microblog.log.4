@@ -1,0 +1,123 @@
+2018-10-15 12:21:45,152 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 12:28:03,713 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 12:30:08,035 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 12:36:17,726 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 12:39:55,036 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 16:00:09,699 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 16:00:12,238 ERROR: Exception on / [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 260, in decorated_view
+    return current_app.login_manager.unauthorized()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 167, in unauthorized
+    flash(self.login_message, category=self.login_message_category)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/helpers.py", line 410, in flash
+    session['_flashes'] = flashes
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+2018-10-15 16:00:21,572 ERROR: Exception on /login [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 21, in login
+    form = LoginForm()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 212, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 88, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 278, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 132, in process
+    field.process(formdata)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 134, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 121, in _get_config
+    raise KeyError(message)
+KeyError: 'A secret key is required to use CSRF.'
+2018-10-15 16:00:48,248 ERROR: Exception on /login [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 21, in login
+    form = LoginForm()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 212, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 88, in __init__
+    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 278, in __init__
+    self.process(formdata, obj, data=data, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 132, in process
+    field.process(formdata)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/csrf/core.py", line 43, in process
+    self.current_token = self.csrf_impl.generate_csrf_token(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 134, in generate_csrf_token
+    token_key=self.meta.csrf_field_name
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
+    message='A secret key is required to use CSRF.'
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 121, in _get_config
+    raise KeyError(message)
+KeyError: 'A secret key is required to use CSRF.'
+2018-10-15 16:02:50,257 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-15 16:02:51,305 ERROR: Exception on / [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 260, in decorated_view
+    return current_app.login_manager.unauthorized()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 167, in unauthorized
+    flash(self.login_message, category=self.login_message_category)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/helpers.py", line 410, in flash
+    session['_flashes'] = flashes
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
+    self._get_current_object()[key] = value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
+    raise RuntimeError('The session is unavailable because no secret '
+RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.

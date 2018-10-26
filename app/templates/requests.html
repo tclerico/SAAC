@@ -1,14 +1,39 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+    <div class="panel-group" id="accordion">
+        {% for request in requests %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
+                    {{ request.title }}</a>
+                </h4>
+            </div>
+            <div id="collapse{{ loop.index }}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p><span>{{ request.author.name }}   {{ request.timestamp }}</span></p>
+                    <p>{{ request.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-<h1>List of Requests</h1>
-    <ul>
-    {% for request in requests %}
-        {% if request.is_active %}
-        <li><a href="{{ url_for('indiv_request', id=request.id) }}">{{ request.title }}</a></li>
-        {% endif %}
-    {% endfor %}
-    </ul>
+
+
+
+
+
+
+
+{#<h1>List of Requests</h1>#}
+{#    <ul>#}
+{#    {% for request in requests %}#}
+{#        {% if request.is_active %}#}
+{#        <li><a href="{{ url_for('indiv_request', id=request.id) }}">{{ request.title }}</a></li>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{#    </ul>#}
 
 {% endblock %}
