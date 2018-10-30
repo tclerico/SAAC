@@ -11,7 +11,7 @@ $(function () {
                 console.log(title);
                 var id = data.requests[index][0];
                 console.log(id);
-                var req = '<input class="current" type="checkbox" value=' + id + ' >' + title + '<br>';
+                var req = '<li class="list-group-item"><input class="current" type="checkbox" value=' + id + ' > ' + title + '</li>';
                 $("#posts").append(req)
             })
         });
@@ -50,27 +50,33 @@ $(function () {
 
 
     <h1>{{ user.name }}</h1>
-    <h3>Your Areas of Expertise:</h3>
-    <ul>
-        {% for field in user.fields %}
-        <li>{{ field }}</li>
-        {% endfor %}
-    </ul>
+    <div class="col-md-4">
+        <h3>Your Areas of Expertise:</h3>
 
+        <ul class="list-group">
+            {% for field in user.fields %}
+            <li class="list-group-item">{{ field }}</li>
+            {% endfor %}
+        </ul>
 
-
-    <p>
-        <span>Edit Your Account:</span><br>
-        <a href="{{ url_for('expertise') }}">Click Here</a>
-    </p>
-
-
-    <h3>Your Posts:</h3>
-
-    <div id="posts">
-
+        <p>
+            <span>Edit Your Account:</span><br>
+            <a href="{{ url_for('expertise') }}">Click Here</a>
+        </p>
     </div>
-    <button type="button" id="resolve">Resolve</button>
+
+
+    <div class="col-md-6">
+
+
+        <h3>Your Posts:</h3>
+        <span style="font-size:small;color:darkgray">To remove one of your posts please check the box next to it and press the 'Resolve' button</span><br>
+
+        <ul id="posts" class="list-group">
+        </ul>
+
+        <button type="button" id="resolve">Resolve</button>
+    </div>
 
 
 {#    {% for request in requests %}#}

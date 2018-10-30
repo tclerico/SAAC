@@ -3,6 +3,8 @@ from app.models import *
 from flask_login import current_user, login_user, logout_user, login_required
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from app.forms import LoginForm, NewRequestForm, RegistrationForm
+from app.token import *
+from app.email import *
 
 def subjects_from_file():
     with open('subjects.txt') as f:
@@ -70,9 +72,9 @@ def register_user(form):
 
     # create user
     user = User(name=parsed, email=form.email.data, class_year=form.class_year.data,
-                department=form.department.data, sport=form.sport.data, sec_sport=form.sec_sport.data)
+                department=form.department.data, sport=form.sport.data, sec_sport=form.sec_sport.data, confirmed=False)
     user.set_password(form.password.data)
     db.session.add(user)
     db.session.commit()
-    flash('Thank you for registering!')
-    login_user(user)
+
+    return user

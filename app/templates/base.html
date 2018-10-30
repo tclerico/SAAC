@@ -33,10 +33,12 @@
                         {% if current_user.is_anonymous %}
                         <li><a href="{{ url_for('login') }}">Login</a></li>
                         {% else %}
-                        <li><a href="{{ url_for('account', name=current_user.name) }}">Account</a></li>
-                        <li><a href="{{ url_for('new_request') }}">New Request</a></li>
-                        <li><a href="{{ url_for('request_list') }}">Help Others</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                            <li><a href="{{ url_for('account', name=current_user.name) }}">Account</a></li>
+                            {% if current_user.confirmed %}
+                                <li><a href="{{ url_for('new_request') }}">New Request</a></li>
+                                <li><a href="{{ url_for('request_list') }}">Help Others</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('logout') }}">Logout</a></li>
                         {% endif %}
                     </ul>
                 </div>

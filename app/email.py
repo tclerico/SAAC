@@ -34,3 +34,11 @@ def send_news_letter(user, requests):
                                          user=user, requests=requests),
                html_body=render_template('email/news_letter.html',
                                          user=user, requests=requests))
+
+
+def send_confirmation(email, template):
+    msg = Message('SAAC Email Confirmation',
+                  sender=app.config['ADMINS'][0],
+                  recipients=[email],
+                  html=template)
+    mail.send(msg)

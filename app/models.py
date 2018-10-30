@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     sport = db.column(db.String(64))
     sec_sport = db.column(db.String(64))
     requests = db.relationship('Request', backref='author', lazy='dynamic')
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
     password_hash = db.Column(db.String(128))
     fields = db.relationship('Expertise', secondary=uTe, lazy='dynamic',
                                 backref=db.backref('users', lazy='dynamic'))

@@ -9,6 +9,8 @@ from collections import Counter
 import datetime
 import time
 from datetime import date, datetime, timedelta
+from app.token import *
+from app.decorators import *
 
 
 @app.route('/')
@@ -45,7 +47,16 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         #creates user and logs them in
-        register_user(form)
+        user = register_user(form)
+
+        token = generate_confirmation_token(user.email)
+        confirm_url = url_for('confirm_email', token=token, _external=True)
+        html = render_template('email/confirmation_email.html', confirm_url=confirm_url)
+        send_confirmation(user.email, html)
+
+        flash('Thank you for registering!')
+        login_user(user)
+
         return redirect(url_for('expertise'))
     return render_template('register.html', title='Register', form=form)
 
@@ -78,6 +89,45 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
+
+
+@app.route('/confirm/<token>', methods=['GET', 'POST'])
+@login_required
+def confirm_email(token):
+    try:
+        email = confirm_token(token)
+    except:
+        flash('The confirmation link is invalid or has expired.', 'danger')
+
+    user = User.query.filter_by(email=email).first()
+    if user.confirmed:
+        flash('Account already confirmed. Please login.', 'success')
+    else:
+        user.confirmed = True
+        db.session.add(user)
+        db.session.commit()
+        flash('You have confirmed your account. Thanks!', 'success')
+    return redirect(url_for('index'))
+
+
+@app.route('/unconfirmed')
+@login_required
+def unconfirmed():
+    if current_user.confirmed:
+        return redirect(url_for(account,name=current_user.name))
+    flash('Please confirm your account!', 'warning')
+    return render_template('unconfirmed.html')
+
+@app.route('/resend')
+@login_required
+def resend_confirmation():
+    token = generate_confirmation_token(current_user.email)
+    confirm_url = url_for('confirm_email',token=token, _external=True)
+    html = render_template('email/confirmation_email.html',confirm_url=confirm_url)
+    send_confirmation(current_user.email, html)
+    flash('A new confirmation email has been sent.', 'success')
+    return redirect(url_for('unconfirmed'))
+
 
 
 # route for adding expertise after registration
@@ -155,6 +205,7 @@ def account(name):
 # route to display a specific request
 @app.route('/request/<id>')
 @login_required
+@check_confirmed
 def indiv_request(id):
     req = Request.query.get(id)
     return render_template('request.html', req=req)
@@ -163,13 +214,14 @@ def indiv_request(id):
 # Route for the New Request Form to create a new request
 @app.route('/new_request', methods=['GET', 'POST'])
 @login_required
+@check_confirmed
 def new_request():
     form = NewRequestForm()
     if form.validate_on_submit():
-        #creates new requet in service function and gets the requests id
-        retId = create_new_request(form)
+        #creates new request in service function and gets the requests id
+        returned_Id = create_new_request(form)
         flash('Successfully Created New Request')
-        return redirect((url_for('indiv_request', id=retId)))
+        return redirect((url_for('indiv_request', id=returned_Id)))
     return render_template('new_request.html', title='New Request', form=form)
 
 
@@ -177,6 +229,7 @@ def new_request():
 # (needs to fit the users preferences)
 @app.route('/request_list')
 @login_required
+@check_confirmed
 def request_list():
     requests = current_user.expert_requests().all()
     return render_template('requests.html', requests=requests)

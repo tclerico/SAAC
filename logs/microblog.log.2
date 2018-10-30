@@ -1,61 +1,4 @@
-2018-10-15 18:01:28,837 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 492, in send
-    message.send(connection)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 427, in send
-    connection.send(self)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 192, in send
-    message.rcpt_options)
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 852, in sendmail
-    self.ehlo_or_helo_if_needed()
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 600, in ehlo_or_helo_if_needed
-    if not (200 <= self.ehlo()[0] <= 299):
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 440, in ehlo
-    self.putcmd(self.ehlo_msg, name or self.local_hostname)
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 367, in putcmd
-    self.send(str)
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 359, in send
-    raise SMTPServerDisconnected('please run connect() first')
-smtplib.SMTPServerDisconnected: please run connect() first
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 57, in reset_password_request
-    send_password_reset_email(user)
-  File "/Users/timc/PycharmProjects/SAAC/app/email.py", line 19, in send_password_reset_email
-    user=user, token=token))
-  File "/Users/timc/PycharmProjects/SAAC/app/email.py", line 9, in send_email
-    mail.send(msg)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 492, in send
-    message.send(connection)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 152, in __exit__
-    self.host.quit()
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 984, in quit
-    res = self.docmd("quit")
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 420, in docmd
-    self.putcmd(cmd, args)
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 367, in putcmd
-    self.send(str)
-  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 359, in send
-    raise SMTPServerDisconnected('please run connect() first')
-smtplib.SMTPServerDisconnected: please run connect() first
-2018-10-16 19:49:33,765 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 14:29:28,347 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 14:31:00,945 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 14:31:11,372 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-10-22 19:52:31,999 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -83,10 +26,9 @@ Traceback (most recent call last):
     message.rcpt_options)
   File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 867, in sendmail
     raise SMTPSenderRefused(code, resp, from_addr)
-smtplib.SMTPSenderRefused: (530, b'5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError n207-v6sm1042956qkn.46 - gsmtp', 'saacithaca@gmail.com')
-2018-10-22 19:29:53,763 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 19:32:10,571 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 19:32:18,089 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+smtplib.SMTPSenderRefused: (530, b'5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError 38-v6sm7207117qtt.60 - gsmtp', 'saacithaca@gmail.com')
+2018-10-22 19:53:39,592 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-22 19:53:47,965 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -114,6 +56,73 @@ Traceback (most recent call last):
     message.rcpt_options)
   File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 867, in sendmail
     raise SMTPSenderRefused(code, resp, from_addr)
-smtplib.SMTPSenderRefused: (530, b'5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError t22-v6sm38950673qtt.1 - gsmtp', 'saacithaca@gmail.com')
-2018-10-22 19:33:26,814 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-22 19:52:25,515 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+smtplib.SMTPSenderRefused: (530, b'5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError q51-v6sm9755056qtq.6 - gsmtp', 'saacithaca@gmail.com')
+2018-10-22 19:56:24,255 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-22 19:56:34,305 ERROR: Exception on /reset_password_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 57, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/timc/PycharmProjects/SAAC/app/email.py", line 26, in send_password_reset_email
+    user=user, token=token))
+  File "/Users/timc/PycharmProjects/SAAC/app/email.py", line 15, in send_email
+    mail.send(msg)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 192, in send
+    message.rcpt_options)
+  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 867, in sendmail
+    raise SMTPSenderRefused(code, resp, from_addr)
+smtplib.SMTPSenderRefused: (530, b'5.5.1 Authentication Required. Learn more at\n5.5.1  https://support.google.com/mail/?p=WantAuthError y126-v6sm6165735qky.94 - gsmtp', 'saacithaca@gmail.com')
+2018-10-23 14:43:35,640 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-23 15:34:58,902 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-23 21:34:43,026 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-23 21:35:05,860 ERROR: Exception on /newsletter [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in newpostsemail
+    reqs = usr.expert_request.all()
+AttributeError: 'User' object has no attribute 'expert_request'
+2018-10-23 21:35:31,913 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
+2018-10-23 21:35:34,331 ERROR: Exception on /newsletter [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in newpostsemail
+    reqs = usr.expert_requests.all()
+AttributeError: 'function' object has no attribute 'all'
+2018-10-23 21:35:49,128 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]

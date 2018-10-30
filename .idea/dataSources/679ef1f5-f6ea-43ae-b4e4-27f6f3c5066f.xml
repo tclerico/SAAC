@@ -200,17 +200,21 @@
       <Position>6</Position>
       <DataType>VARCHAR(128)|0s</DataType>
     </column>
-    <index id="55" parent="12" name="ix_user_name">
+    <column id="55" parent="12" name="confirmed">
+      <Position>7</Position>
+      <DataType>BOOLEAN|0s</DataType>
+    </column>
+    <index id="56" parent="12" name="ix_user_name">
       <ColNames>name</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="56" parent="12" name="ix_user_email">
+    <index id="57" parent="12" name="ix_user_email">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="57" parent="12">
+    <key id="58" parent="12">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
