@@ -181,12 +181,12 @@ def remove_post():
 
 
 # route to process a change in a users expertise selections
-# used in edit user and
+# used in edit user and expertise form
 @app.route('/_process', methods=['GET','POST'])
 def process():
     # gets ajax request coupled with info
     if request.method == 'POST':
-        # process select experise
+        # process selected expertise
         inputs = request.json
         process_expertise_change(inputs)
         return jsonify(dict(redirect=url_for('request_list')))
@@ -218,6 +218,12 @@ def indiv_request(id):
 def new_request():
     form = NewRequestForm()
     if form.validate_on_submit():
+        #check to see if course info is correct
+        checkInfo = validRequest(form)
+        if checkInfo is False:
+            flash('Incorrect Course Information')
+            return redirect(url_for('new_request'))
+
         #creates new request in service function and gets the requests id
         returned_Id = create_new_request(form)
         flash('Successfully Created New Request')
@@ -227,15 +233,27 @@ def new_request():
 
 # Route for list of requests
 # (needs to fit the users preferences)
-@app.route('/request_list')
+@app.route('/request_list', methods=['GET','POST'])
 @login_required
 @check_confirmed
 def request_list():
     requests = current_user.expert_requests().all()
     return render_template('requests.html', requests=requests)
 
-# This route is specifially to test the email functionality
-# and will need to be repurposed once scheduling is to be implemented
+
+@app.route('/_response_email', methods=['GET', 'POST'])
+def response_email():
+    if request.method == 'POST':
+        info = request.json
+        recip = info[1]
+        msg = info[0]
+        template = render_template('email/response.html',msg=msg)
+        send_response_email(email=recip,template=template)
+    return "An email has been sent"
+
+
+# This route is specifically to test the email functionality
+# and will need to be re-purposed once scheduling is to be implemented
 @app.route('/newsletter')
 def newpostsemail():
     # get current user and all of the requests in their expertise

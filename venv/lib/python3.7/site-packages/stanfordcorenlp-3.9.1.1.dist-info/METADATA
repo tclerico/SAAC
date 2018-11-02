@@ -1,0 +1,34 @@
+Metadata-Version: 2.0
+Name: stanfordcorenlp
+Version: 3.9.1.1
+Summary: Python wrapper for Stanford CoreNLP.
+Home-page: https://github.com/Lynten/stanford-corenlp
+Author: Lynten Guo
+Author-email: 1216920263@qq.com
+License: MIT License
+Keywords: NLP,CL,natural language processing,computational linguistics
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: psutil
+Requires-Dist: requests
+
+UNKNOWN
+
+

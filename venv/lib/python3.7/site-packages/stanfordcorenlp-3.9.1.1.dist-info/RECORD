@@ -1,0 +1,11 @@
+stanfordcorenlp/__init__.py,sha256=Y3xDvHd0Z-Ewa1KkIbZ7D6LrHktSE7TIOgJXovmzfDo,53
+stanfordcorenlp/corenlp.py,sha256=jLOqFCZXk82lNC3LEF2ijLSNj9rWchaOiQhjrKdHekI,9998
+stanfordcorenlp-3.9.1.1.dist-info/DESCRIPTION.rst,sha256=OCTuuN6LcWulhHS3d5rfjdsQtW22n7HENFRh6jC6ego,10
+stanfordcorenlp-3.9.1.1.dist-info/METADATA,sha256=nWLRI-hOWDieMLBvnHE0Jwg8dMB44eyCIRUuwh_IUDI,1327
+stanfordcorenlp-3.9.1.1.dist-info/RECORD,,
+stanfordcorenlp-3.9.1.1.dist-info/WHEEL,sha256=9Z5Xm-eel1bTS7e6ogYiKz0zmPEqDwIypurdHN1hR40,116
+stanfordcorenlp-3.9.1.1.dist-info/metadata.json,sha256=GVGGtu3xMyo-o75l_ABA2T9YouY_mlKxs7spZ9MncxU,1373
+stanfordcorenlp-3.9.1.1.dist-info/top_level.txt,sha256=mcn2I7nyWUFnKDR5KsLxELEVMUB-GeCFC1sxJu5NAI4,16
+stanfordcorenlp-3.9.1.1.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+stanfordcorenlp/__pycache__/corenlp.cpython-37.pyc,,
+stanfordcorenlp/__pycache__/__init__.cpython-37.pyc,,

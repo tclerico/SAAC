@@ -28,7 +28,7 @@ def process_expertise_change(inputs):
     user = User.query.get(current_user.id)
     current = user.fields.all()
 
-    # TODO MAKE THE APPEND/REMOVE MORE EFFICENT --> use Counter?
+    # TODO MAKE THE APPEND/REMOVE MORE EFFICIENT --> use Counter?
     # checks the sent fields against current fields
     # looks for expertise that exist in sent but not in current fields
     # adds the new fields
@@ -48,6 +48,7 @@ def process_expertise_change(inputs):
 def create_new_request(form):
     #get prefix + number and find the corresponding expertise
     prefix = form.c_prefix.data
+    prefix = prefix.upper()
     number = int(form.c_number.data)
     level = (int(number / 100)) * 100
     expertise = Expertise.query.filter_by(
@@ -63,6 +64,29 @@ def create_new_request(form):
     db.session.commit()
 
     return (retRequest.id)
+
+
+def validRequest(form):
+    valid = True
+
+    expertise = Expertise.query.all()
+    pref = form.c_prefix.data
+    pref = pref.upper()
+    number = int(form.c_number.data)
+    level = (int(number / 100)) * 100
+
+    exPref = []
+    for e in expertise:
+       exPref.append(e.course_prefix)
+
+    if exPref.count(pref) < 1:
+        valid = False
+
+    if level > 400:
+        valid = False
+
+    return valid
+
 
 
 

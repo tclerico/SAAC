@@ -8,9 +8,7 @@ $(function () {
         $.getJSON($SCRIPT_ROOT + '/_user_requests', [], function (data) {
             $.each(data.requests, function (index, value) {
                 var title = data.requests[index][1];
-                console.log(title);
                 var id = data.requests[index][0];
-                console.log(id);
                 var req = '<li class="list-group-item"><input class="current" type="checkbox" value=' + id + ' > ' + title + '</li>';
                 $("#posts").append(req)
             })
@@ -25,22 +23,29 @@ $(function () {
             var info = $(this).val();
             arr.push(info);
         });
-        var selected = JSON.stringify(arr);
-        console.log(selected)
 
-        var request = $.ajax({
-            type: "POST",
-            contentType:"application/json; charset=utf-8",
-            url:"/_removePost",
-            dataType: "json",
-            data: selected,
-            success: function (response) {
-                console.log('success');
-                if (response.redirect){
-                    window.location.href = response.redirect;
+        //checks to make sure that there are options selected
+        //won't send ajax if no selections
+        if (arr.length != 0){
+            var selected = JSON.stringify(arr);
+            console.log(selected);
+
+            var request = $.ajax({
+                type: "POST",
+                contentType:"application/json; charset=utf-8",
+                url:"/_removePost",
+                dataType: "json",
+                data: selected,
+                success: function (response) {
+                    console.log('success');
+                    if (response.redirect){
+                        window.location.href = response.redirect;
+                    }
                 }
-            }
-        });
+            });
+
+        }
+
     });
 })
 
@@ -60,8 +65,7 @@ $(function () {
         </ul>
 
         <p>
-            <span>Edit Your Account:</span><br>
-            <a href="{{ url_for('expertise') }}">Click Here</a>
+            <a href="{{ url_for('expertise') }}"><button type="button">Edit Acount</button></a>
         </p>
     </div>
 

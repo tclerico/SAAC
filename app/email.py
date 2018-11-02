@@ -42,3 +42,10 @@ def send_confirmation(email, template):
                   recipients=[email],
                   html=template)
     mail.send(msg)
+
+def send_response_email(email, template):
+    msg = Message('Response to Your Request',
+                  sender=app.config['ADMINS'][0],
+                  recipients=[email],
+                  html=template)
+    mail.send(msg)

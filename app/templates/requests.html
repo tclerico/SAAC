@@ -1,22 +1,93 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+    <script>
+    {#$(document).ready(function(){#}
+    {#    $('[data-toggle="popover"]').popover();#}
+    {# });#}
+
+    $(function(){
+        $('.btn-default').popover({
+            placement: 'bottom',
+            title: 'Respond to Request',
+            html:true,
+            content: $('.hide').html()
+        }).on('click', function(){
+            $('.messageForm').submit(function(e){
+                e.preventDefault();
+                var text = $(this).find('input').val();
+                var addr = $(this).find('.hidden').text();
+
+                var arr = [text,addr];
+                var msg = JSON.stringify(arr);
+
+                var request = $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/_response_email",
+                    dataType: "json",
+                    data: msg,
+                    success: function(response){
+                        alert(response);
+                    }
+                 });
+            });
+        });
+     });
+
+    {##}
+    {#$(function(){#}
+    {#    $("#send_message").click(function(){#}
+    {#        var email = $("#email").text();#}
+    {#        var tsend = JSON.stringify(email);#}
+    {##}
+    {#        var request = $.ajax({#}
+    {#            type: "POST",#}
+    {#            contentType: "application/json; charset=utf-8",#}
+    {#            url: "/_response_email",#}
+    {#            dataType: "json",#}
+    {#            data: tsend,#}
+    {#            success: function (response) {#}
+    {#                window.alert(response)#}
+    {#            }#}
+    {#        });#}
+    {#    });#}
+    {# });#}
+
+
+
+    </script>
+
     <div class="panel-group" id="accordion">
         {% for request in requests %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
-                    {{ request.title }}</a>
-                </h4>
-            </div>
-            <div id="collapse{{ loop.index }}" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p><span>{{ request.author.name }}   {{ request.timestamp }}</span></p>
-                    <p>{{ request.description }}</p>
+            {% if request.is_active %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
+                                {{ request.title }}</a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{ loop.index }}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p><span class="post-info">{{ request.author.name }}, From the {{ request.author.sport }} team.</span></p>
+                            <p>{{ request.description }}</p>
+                            <p>{{ request.timestamp }}</p>
+                            <p><button type="button" id="send_message{{ loop.index }}" class="btn-default">Respond</button></p>
+                            <div id="respond{{ loop.index }}" class="hide">
+                                <form action="" id="popForm{{ loop.index }}" class="messageForm" method="get">
+                                    <div>
+                                        <label for="message">Message:</label>
+                                        <input type="text" name="message" id="message{{ loop.index }}" class="form-control input-md message">
+                                        <button type="submit" class="btn btn-primary send">Send</button>
+                                        <p class="hidden">{{ request.author.email }}</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            {% endif %}
         {% endfor %}
     </div>
 
