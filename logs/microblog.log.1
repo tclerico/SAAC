@@ -1,4 +1,13 @@
-2018-10-31 12:57:23,377 ERROR: Exception on /request_list [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-11-06 19:28:46,209 ERROR: Exception on /request_list [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: expertise.id
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -17,97 +26,90 @@ Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/app/decorators.py", line 13, in decorated_function
     return func(*args,**kwargs)
   File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 241, in request_list
-    return render_template('requests.html', requests=requests)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    requests = current_user.expert_requests().all()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2836, in all
+    return list(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2988, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3011, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
     raise value.with_traceback(tb)
-  File "/Users/timc/PycharmProjects/SAAC/app/templates/requests.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/timc/PycharmProjects/SAAC/app/templates/base.html", line 9, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/Users/timc/PycharmProjects/SAAC/app/templates/base.html", line 60, in block "content"
-    {% block app_content %}{% endblock %}
-  File "/Users/timc/PycharmProjects/SAAC/app/templates/requests.html", line 58, in block "app_content"
-    <p><span>{{ request.author.name }}  {{ request.author.sport }}  {{ request.timestamp }}</span></p>
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 452, in __str__
-    return str(self.compile())
-  File "<string>", line 1, in <lambda>
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 442, in compile
-    return self._compiler(dialect, bind=bind, **kw)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 448, in _compiler
-    return dialect.statement_compiler(dialect, self, **kw)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 453, in __init__
-    Compiled.__init__(self, dialect, statement, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 219, in __init__
-    self.string = self.process(self.statement, **compile_kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 245, in process
-    return obj._compiler_dispatch(self, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/visitors.py", line 81, in _compiler_dispatch
-    return meth(self, **kw)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 716, in visit_column
-    name = self.preparer.quote(name)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 3097, in quote
-    if self._requires_quotes(ident):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/compiler.py", line 3068, in _requires_quotes
-    lc_value = value.lower()
-AttributeError: 'String' object has no attribute 'lower'
-2018-10-31 12:58:05,989 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:01:35,821 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:02:16,305 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:02:22,257 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:03:06,186 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:05:04,982 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:05:59,527 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:06:26,963 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:06:54,509 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:07:44,701 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:21:47,873 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:27:27,035 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:28:02,179 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:30:08,400 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:31:10,040 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:31:54,871 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:33:36,930 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:40:50,000 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:42:54,720 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:45:00,210 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 13:48:21,667 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 14:04:26,844 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 14:11:01,489 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 14:12:59,722 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 14:13:30,763 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:30:55,427 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:35:17,139 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:36:03,296 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:36:29,762 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:38:12,048 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:38:27,843 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:46:53,377 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:51:15,046 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:51:56,994 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:52:23,887 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:52:42,587 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:58:15,269 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 18:59:07,922 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 19:05:07,363 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 19:05:29,384 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 19:06:23,675 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 19:06:51,693 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 19:10:43,508 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: expertise.id [SQL: 'SELECT request.id AS request_id, request.uid AS request_uid, request.expertise_id AS request_expertise_id, request.title AS request_title, request.description AS request_description, request.timestamp AS request_timestamp, request.is_active AS request_is_active \nFROM request JOIN "UserToExpert" ON "UserToExpert".expertise_id = (expertise.id = request.expertise_id) JOIN user ON user.id = "UserToExpert".user_id \nWHERE "UserToExpert".user_id = ? ORDER BY request.timestamp DESC'] [parameters: (2,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-11-06 19:28:47,165 ERROR: Exception on /request_list [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: expertise.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/app/decorators.py", line 13, in decorated_function
+    return func(*args,**kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 241, in request_list
+    requests = current_user.expert_requests().all()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2836, in all
+    return list(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2988, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3011, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: expertise.id [SQL: 'SELECT request.id AS request_id, request.uid AS request_uid, request.expertise_id AS request_expertise_id, request.title AS request_title, request.description AS request_description, request.timestamp AS request_timestamp, request.is_active AS request_is_active \nFROM request JOIN "UserToExpert" ON "UserToExpert".expertise_id = (expertise.id = request.expertise_id) JOIN user ON user.id = "UserToExpert".user_id \nWHERE "UserToExpert".user_id = ? ORDER BY request.timestamp DESC'] [parameters: (2,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-11-06 19:30:05,586 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:30:57,556 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:31:29,959 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:32:45,858 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:57:36,514 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 20:02:37,291 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 20:11:17,533 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]

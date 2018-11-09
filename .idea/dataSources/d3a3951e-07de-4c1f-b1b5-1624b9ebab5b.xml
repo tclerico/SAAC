@@ -88,7 +88,7 @@
       <Position>2</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="28" parent="9" name="expertise">
+    <column id="28" parent="9" name="expertise_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
@@ -108,8 +108,8 @@
       <Position>7</Position>
       <DataType>BOOLEAN|0s</DataType>
     </column>
-    <index id="33" parent="9" name="ix_request_expertise">
-      <ColNames>expertise</ColNames>
+    <index id="33" parent="9" name="ix_request_expertise_id">
+      <ColNames>expertise_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
     <index id="34" parent="9" name="ix_request_timestamp">
@@ -126,7 +126,7 @@
       <RefColNames>id</RefColNames>
     </foreign-key>
     <foreign-key id="37" parent="9">
-      <ColNames>expertise</ColNames>
+      <ColNames>expertise_id</ColNames>
       <RefTableName>expertise</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -196,22 +196,22 @@
       <Position>5</Position>
       <DataType>VARCHAR(120)|0s</DataType>
     </column>
-    <column id="54" parent="12" name="confirmed">
+    <column id="54" parent="12" name="sport">
       <Position>6</Position>
+      <DataType>VARCHAR(64)|0s</DataType>
+    </column>
+    <column id="55" parent="12" name="sec_sport">
+      <Position>7</Position>
+      <DataType>VARCHAR(64)|0s</DataType>
+    </column>
+    <column id="56" parent="12" name="confirmed">
+      <Position>8</Position>
       <DataType>BOOLEAN|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="12" name="password_hash">
-      <Position>7</Position>
-      <DataType>VARCHAR(128)|0s</DataType>
-    </column>
-    <column id="56" parent="12" name="sec_sport">
-      <Position>8</Position>
-      <DataType>VARCHAR(64)|0s</DataType>
-    </column>
-    <column id="57" parent="12" name="sport">
+    <column id="57" parent="12" name="password_hash">
       <Position>9</Position>
-      <DataType>VARCHAR(64)|0s</DataType>
+      <DataType>VARCHAR(128)|0s</DataType>
     </column>
     <index id="58" parent="12" name="ix_user_name">
       <ColNames>name</ColNames>

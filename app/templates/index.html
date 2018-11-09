@@ -1,4 +1,19 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 {% block app_content %}
-<h1> HELLO {{ current_user.name }}</h1>
+<h1> Hello {{ current_user.name }}</h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h2>Welcome to the SAAC peer mentoring board</h2>
+            <p><span style="text-decoration: underline"><b>Helping others:</b></span><br>
+                Your areas of expertise determine what requests you will see.
+                These can be changed at anytime from your account page.
+                Requests for help can be viewed on the 'Help Others' page.<br>
+                <span style="text-decoration: underline"><b>Requesting Help:</b></span><br>
+                You can request help through the 'New Request' page. All of your requests will be displayed in your account page as well.
+                When you no longer need help with one of your requests, it can be resolved from your account page by selecting it and pressing the 'resolve' button
+            </p>
+        </div>
+    </div>
+
 {% endblock %}

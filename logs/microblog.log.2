@@ -1,4 +1,4 @@
-2018-10-30 15:33:34,867 ERROR: Exception on /new_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-11-06 19:25:57,493 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,44 +12,106 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/app/decorators.py", line 13, in decorated_function
-    return func(*args,**kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 226, in new_request
-    returned_Id = create_new_request(form)
-  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 60, in create_new_request
-    retRequest = Request(uid=current_user.id, expertise=expertise.id,
-AttributeError: 'NoneType' object has no attribute 'id'
-2018-10-30 15:34:29,211 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:35:10,775 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:39:43,729 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:42:12,034 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:44:52,856 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:45:55,364 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:46:32,766 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:47:31,406 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:48:42,627 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:51:34,383 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:03:59,914 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:14:53,244 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:15:14,906 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:15:37,724 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:18:26,153 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:18:43,514 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:19:12,080 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:41:07,254 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:42:30,488 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 21:44:37,305 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:10:38,318 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:11:24,116 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:28:31,950 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:30:26,461 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:32:22,101 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 10:32:45,042 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:02:49,136 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:47:32,435 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:49:22,931 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:51:40,067 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:52:29,330 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-31 12:57:11,188 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:25:58,739 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:25:59,323 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:25:59,778 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:26:00,219 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:26:01,577 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'
+2018-11-06 19:26:36,355 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:27:19,351 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:27:39,782 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]

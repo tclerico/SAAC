@@ -6,6 +6,14 @@ from time import time
 import jwt
 
 
+#TODO impliment this instead of relational tabel -> will need to update alot of other places
+# class UserToExpert(db.Model):
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+#     expert_id = db.Column(db.Integer, db.ForeignKey('expertise.id'), primary_key=True)
+#     user = db.relationship("User", backref="expertise")
+#     expertise = db.relationship("Expertise", backref="users")
+
+
 uTe = db.Table('UserToExpert',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('expertise_id', db.Integer, db.ForeignKey('expertise.id'))
@@ -64,7 +72,7 @@ class User(UserMixin, db.Model):
     #function returning all the request from current_users expertises
     def expert_requests(self):
         return Request.query.join(
-            uTe, (uTe.c.expertise_id == Request.expertise)).join(
+            uTe, (uTe.c.expertise_id == Request.expertise_id)).join(
             User, (User.id == uTe.c.user_id)).filter(uTe.c.user_id == self.id).order_by(Request.timestamp.desc())
 
     #function returning all requests made by current_user
@@ -77,11 +85,10 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-
 class Request(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     uid = db.Column(db.Integer, db.ForeignKey('user.id'))
-    expertise = db.Column(db.Integer, db.ForeignKey('expertise.id'), index=True)
+    expertise_id = db.Column(db.Integer, db.ForeignKey('expertise.id'), index=True)
     title = db.Column(db.String(64))
     description = db.Column(db.String(560))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
@@ -89,7 +96,6 @@ class Request(db.Model):
 
     def __repr__(self):
         return '{}'.format(self.title)
-
 
 
 class Resolution(db.Model):
@@ -100,10 +106,12 @@ class Resolution(db.Model):
     def __repr__(self):
         return '<Resolution {}>'.format(self.description)
 
+
 class Expertise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     course_prefix = db.Column(db.String(12), index=True)
     course_level = db.Column(db.Integer, index=True)
+    requests = db.relationship("Request", backref="expertise", lazy="dynamic")
 
     def __repr__(self):
         return '{}'.format(self.course_prefix) + ' {}'.format(self.course_level)

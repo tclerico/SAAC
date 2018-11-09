@@ -1,6 +1,6 @@
 from app import app, db, email
 from app.email import *
-from flask import render_template, flash, redirect, url_for, request, jsonify
+from flask import render_template, flash, redirect, url_for, request, jsonify, current_app
 from app.forms import LoginForm, NewRequestForm, RegistrationForm, ResetPasswordRequest, ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Request, Expertise
@@ -11,6 +11,11 @@ import time
 from datetime import date, datetime, timedelta
 from app.token import *
 from app.decorators import *
+
+
+@app.before_first_request
+def expertise_population():
+    current_app.expert_population = count_population()
 
 
 @app.route('/')
@@ -118,6 +123,7 @@ def unconfirmed():
     flash('Please confirm your account!', 'warning')
     return render_template('unconfirmed.html')
 
+
 @app.route('/resend')
 @login_required
 def resend_confirmation():
@@ -127,7 +133,6 @@ def resend_confirmation():
     send_confirmation(current_user.email, html)
     flash('A new confirmation email has been sent.', 'success')
     return redirect(url_for('unconfirmed'))
-
 
 
 # route for adding expertise after registration
@@ -237,7 +242,8 @@ def new_request():
 @login_required
 @check_confirmed
 def request_list():
-    requests = current_user.expert_requests().all()
+    rFu = current_user.expert_requests().all()
+    requests = sort_requests(rFu)
     return render_template('requests.html', requests=requests)
 
 

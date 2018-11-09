@@ -1,10 +1,14 @@
-2018-10-15 12:21:45,152 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 12:28:03,713 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 12:30:08,035 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 12:36:17,726 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 12:39:55,036 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 16:00:09,699 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 16:00:12,238 ERROR: Exception on / [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-10-29 17:35:55,198 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:36:20,225 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:36:22,108 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:36:59,785 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:37:04,313 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:37:06,352 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:40:05,032 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:40:19,980 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:40:25,386 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:53:14,928 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 17:54:10,360 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -18,18 +22,64 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 260, in decorated_view
-    return current_app.login_manager.unauthorized()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 167, in unauthorized
-    flash(self.login_message, category=self.login_message_category)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/helpers.py", line 410, in flash
-    session['_flashes'] = flashes
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
-    self._get_current_object()[key] = value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
-    raise RuntimeError('The session is unavailable because no secret '
-RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
-2018-10-15 16:00:21,572 ERROR: Exception on /login [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 161, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 45, in process_expertise_change
+    db.session.commit()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+    self._prepare_impl()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 507, in execute
+    self.dependency_processor.process_saves(uow, states)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 1043, in process_saves
+    False, uowcommit, "add"):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 1132, in _synchronize
+    self._verify_canload(child)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 246, in _verify_canload
+    "collection %s" % (self.prop, ))
+sqlalchemy.orm.exc.FlushError: Can't flush None value found in collection User.fields
+2018-10-29 17:57:23,311 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-29 18:04:56,661 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 08:48:25,815 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 08:53:38,335 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:02:46,457 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:03:04,880 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:03:48,931 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:11:23,325 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:25:11,761 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:25:49,795 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:27:06,931 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:32:55,876 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:34:04,272 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:34:19,989 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:34:36,754 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:36:34,286 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:37:20,044 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:37:47,488 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:44:59,920 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:46:12,206 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:46:25,332 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:47:01,396 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:47:44,322 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:48:12,447 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 12:48:40,804 ERROR: Exception on /new_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,81 +93,16 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 21, in login
-    form = LoginForm()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 88, in __init__
-    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 278, in __init__
-    self.process(formdata, obj, data=data, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 132, in process
-    field.process(formdata)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/csrf/core.py", line 43, in process
-    self.current_token = self.csrf_impl.generate_csrf_token(self)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 134, in generate_csrf_token
-    token_key=self.meta.csrf_field_name
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
-    message='A secret key is required to use CSRF.'
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 121, in _get_config
-    raise KeyError(message)
-KeyError: 'A secret key is required to use CSRF.'
-2018-10-15 16:00:48,248 ERROR: Exception on /login [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 21, in login
-    form = LoginForm()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/form.py", line 88, in __init__
-    super(FlaskForm, self).__init__(formdata=formdata, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 278, in __init__
-    self.process(formdata, obj, data=data, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/form.py", line 132, in process
-    field.process(formdata)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/wtforms/csrf/core.py", line 43, in process
-    self.current_token = self.csrf_impl.generate_csrf_token(self)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 134, in generate_csrf_token
-    token_key=self.meta.csrf_field_name
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 35, in generate_csrf
-    message='A secret key is required to use CSRF.'
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_wtf/csrf.py", line 121, in _get_config
-    raise KeyError(message)
-KeyError: 'A secret key is required to use CSRF.'
-2018-10-15 16:02:50,257 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:45]
-2018-10-15 16:02:51,305 ERROR: Exception on / [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 260, in decorated_view
-    return current_app.login_manager.unauthorized()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 167, in unauthorized
-    flash(self.login_message, category=self.login_message_category)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/helpers.py", line 410, in flash
-    session['_flashes'] = flashes
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/werkzeug/local.py", line 350, in __setitem__
-    self._get_current_object()[key] = value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/sessions.py", line 101, in _fail
-    raise RuntimeError('The session is unavailable because no secret '
-RuntimeError: The session is unavailable because no secret key was set.  Set the secret_key on the application to something unique and secret.
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/app/decorators.py", line 13, in decorated_function
+    return func(*args,**kwargs)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 222, in new_request
+    returned_Id = create_new_request(form)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 60, in create_new_request
+    retRequest = Request(uid=current_user.id, expertise=expertise.id,
+AttributeError: 'NoneType' object has no attribute 'id'
+2018-10-30 15:22:30,668 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 15:23:00,510 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 15:23:21,758 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-10-30 15:33:18,297 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]

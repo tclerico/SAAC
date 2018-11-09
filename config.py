@@ -28,3 +28,6 @@ class Config(object):
 
 
 #python -m smtpd -n -c DebuggingServer localhost:8025
+
+# returns all users for a specified expertise
+# User.query.join(User.fields).filter_by(id=20).all()

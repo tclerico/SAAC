@@ -1,14 +1,4 @@
-2018-10-29 17:35:55,198 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:36:20,225 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:36:22,108 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:36:59,785 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:37:04,313 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:37:06,352 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:40:05,032 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:40:19,980 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:40:25,386 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:53:14,928 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 17:54:10,360 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2018-11-04 14:52:32,065 ERROR: Exception on /_response_email [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -22,64 +12,28 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 161, in process
-    process_expertise_change(inputs)
-  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 45, in process_expertise_change
-    db.session.commit()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 943, in commit
-    self.transaction.commit()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 467, in commit
-    self._prepare_impl()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
-    self.session.flush()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
-    self._flush(objects)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
-    raise value
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
-    flush_context.execute()
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
-    rec.execute(self)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 507, in execute
-    self.dependency_processor.process_saves(uow, states)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 1043, in process_saves
-    False, uowcommit, "add"):
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 1132, in _synchronize
-    self._verify_canload(child)
-  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/sqlalchemy/orm/dependency.py", line 246, in _verify_canload
-    "collection %s" % (self.prop, ))
-sqlalchemy.orm.exc.FlushError: Can't flush None value found in collection User.fields
-2018-10-29 17:57:23,311 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-29 18:04:56,661 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 08:48:25,815 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 08:53:38,335 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:02:46,457 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:03:04,880 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:03:48,931 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:11:23,325 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:25:11,761 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:25:49,795 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:27:06,931 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:32:55,876 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:34:04,272 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:34:19,989 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:34:36,754 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:36:34,286 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:37:20,044 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:37:47,488 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:44:59,920 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:46:12,206 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:46:25,332 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:47:01,396 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:47:44,322 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:48:12,447 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 12:48:40,804 ERROR: Exception on /new_request [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 251, in response_email
+    send_response_email(email=recip,template=template)
+  File "/Users/timc/PycharmProjects/SAAC/app/email.py", line 51, in send_response_email
+    mail.send(msg)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_mail.py", line 192, in send
+    message.rcpt_options)
+  File "/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/smtplib.py", line 881, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'': (555, b'5.5.2 Syntax error. k38sm15986557qkh.72 - gsmtp')}
+2018-11-04 14:56:46,812 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 10:06:32,843 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 10:09:01,229 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 10:10:19,982 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 10:12:19,601 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 12:11:20,103 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 12:12:57,196 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 12:13:34,955 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 12:13:37,240 ERROR: Exception on /unconfirmed [GET] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -95,14 +49,61 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/app/decorators.py", line 13, in decorated_function
-    return func(*args,**kwargs)
-  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 222, in new_request
-    returned_Id = create_new_request(form)
-  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 60, in create_new_request
-    retRequest = Request(uid=current_user.id, expertise=expertise.id,
-AttributeError: 'NoneType' object has no attribute 'id'
-2018-10-30 15:22:30,668 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:23:00,510 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:23:21,758 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
-2018-10-30 15:33:18,297 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 117, in unconfirmed
+    return redirect(url_for(account,name=current_user.name))
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/helpers.py", line 305, in url_for
+    if endpoint[:1] == '.':
+TypeError: 'function' object is not subscriptable
+2018-11-05 12:47:06,423 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 13:11:09,439 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 13:12:08,455 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:01:10,716 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:09:08,713 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:10:07,709 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:16:12,443 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:16:42,402 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:16:56,933 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:21:26,957 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:22:32,622 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-05 17:23:44,198 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 13:32:57,547 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:31:19,079 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:41:37,256 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:43:48,771 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:47:07,505 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:51:06,604 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:54:06,639 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 14:57:30,339 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 18:50:28,426 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 18:52:02,780 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 18:59:53,357 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 18:59:58,610 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:00:07,586 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:01:40,483 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:01:44,048 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:01:51,284 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:01:58,041 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:02:57,179 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:03:01,777 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:03:09,368 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:04:47,441 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:24:48,202 INFO: Microblog startup [in /Users/timc/PycharmProjects/SAAC/app/__init__.py:47]
+2018-11-06 19:25:56,503 ERROR: Exception on /_process [POST] [in /Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/timc/PycharmProjects/SAAC/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/timc/PycharmProjects/SAAC/app/routes.py", line 191, in process
+    process_expertise_change(inputs)
+  File "/Users/timc/PycharmProjects/SAAC/app/services.py", line 38, in process_expertise_change
+    s.population += 1
+AttributeError: 'Expertise' object has no attribute 'population'

@@ -2,10 +2,6 @@
 
 {% block app_content %}
     <script>
-    {#$(document).ready(function(){#}
-    {#    $('[data-toggle="popover"]').popover();#}
-    {# });#}
-
     $(function(){
         $('.btn-default').popover({
             placement: 'bottom',
@@ -13,12 +9,18 @@
             html:true,
             content: $('.hide').html()
         }).on('click', function(){
+            // Gets id/index of opened accordion
+            var open = $("div[aria-expanded='true']").attr('id');
+            var id = open.slice(-1);
+
+            //Submit funct.
             $('.messageForm').submit(function(e){
                 e.preventDefault();
+                var addr = $('#ts'+id).text();
                 var text = $(this).find('input').val();
-                var addr = $(this).find('.hidden').text();
 
                 var arr = [text,addr];
+                console.log(arr);
                 var msg = JSON.stringify(arr);
 
                 var request = $.ajax({
@@ -34,35 +36,13 @@
             });
         });
      });
-
-    {##}
-    {#$(function(){#}
-    {#    $("#send_message").click(function(){#}
-    {#        var email = $("#email").text();#}
-    {#        var tsend = JSON.stringify(email);#}
-    {##}
-    {#        var request = $.ajax({#}
-    {#            type: "POST",#}
-    {#            contentType: "application/json; charset=utf-8",#}
-    {#            url: "/_response_email",#}
-    {#            dataType: "json",#}
-    {#            data: tsend,#}
-    {#            success: function (response) {#}
-    {#                window.alert(response)#}
-    {#            }#}
-    {#        });#}
-    {#    });#}
-    {# });#}
-
-
-
     </script>
 
     <div class="panel-group" id="accordion">
         {% for request in requests %}
             {% if request.is_active %}
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading"> <span style="font-size: small" class="pull-right label label-primary">{{ request.expertise }}</span>
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
                                 {{ request.title }}</a>
@@ -75,12 +55,12 @@
                             <p>{{ request.timestamp }}</p>
                             <p><button type="button" id="send_message{{ loop.index }}" class="btn-default">Respond</button></p>
                             <div id="respond{{ loop.index }}" class="hide">
-                                <form action="" id="popForm{{ loop.index }}" class="messageForm" method="get">
-                                    <div>
+                                <form action="" id="popForm{{ loop.index }}" class="messageForm" method="post">
+                                    <div class="mts" id="mts{{ loop.index }}">
                                         <label for="message">Message:</label>
                                         <input type="text" name="message" id="message{{ loop.index }}" class="form-control input-md message">
+                                        <p id="ts{{ loop.index }}" class="hidden">{{ request.author.email }}</p>
                                         <button type="submit" class="btn btn-primary send">Send</button>
-                                        <p class="hidden">{{ request.author.email }}</p>
                                     </div>
                                 </form>
                             </div>
