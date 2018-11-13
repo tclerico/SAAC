@@ -25,6 +25,7 @@ class Config(object):
     MAIL_USERNAME = emailInfo[0]
     MAIL_PASSWORD = emailInfo[1]
     ADMINS = ['saacithaca@gmail.com']
+    LOG_TO_STDOU = os.environ.get('LOG_TO_STDOUT')
 
 
 #python -m smtpd -n -c DebuggingServer localhost:8025
