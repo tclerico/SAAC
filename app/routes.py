@@ -18,6 +18,22 @@ def expertise_population():
     current_app.expert_population = count_population()
 
 
+@app.before_first_request
+def populate_expertise_table():
+    subs = subjects_from_file()
+    for s in subs:
+        prefix = s[1]
+        n100 = Expertise(course_prefix=prefix, course_level=100)
+        n200 = Expertise(course_prefix=prefix, course_level=200)
+        n300 = Expertise(course_prefix=prefix, course_level=300)
+        n400 = Expertise(course_prefix=prefix, course_level=400)
+        db.session.add(n100)
+        db.session.add(n200)
+        db.session.add(n300)
+        db.session.add(n400)
+    db.session.commit()
+
+
 @app.route('/')
 @app.route('/index')
 @login_required
