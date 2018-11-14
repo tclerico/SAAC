@@ -157,7 +157,7 @@ def resend_confirmation():
 def expertise():
     return render_template('expertise.html', title='Expertise')
 
-# route to send content of subjects.txt to page with json
+# route to send content of subjects.csv to page with json
 @app.route('/_populate')
 def populate():
     # open file and read in lines
