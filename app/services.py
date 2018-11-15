@@ -8,7 +8,7 @@ from app.email import *
 from collections import defaultdict
 
 def subjects_from_file():
-    with open('subjects.csv', 'r+', encoding="utf-8") as f:
+    with open('subjects.csv', encoding="utf-8") as f:
         subjects = f.readlines()
     # strip all new line characters
     subjects = [x.strip() for x in subjects]
