@@ -37,6 +37,7 @@ $(function (){
     });
 });
 
+{#Function to send results to server via ajax#}
 $(function () {
     $("#submit").click(function () {
         var arr = [];
@@ -44,6 +45,7 @@ $(function () {
             arr.push($(this).val());
         });
         var choices = JSON.stringify(arr);
+        console.log(choices);
 
         var request = $.ajax({
             type: "POST",

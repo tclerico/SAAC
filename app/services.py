@@ -7,8 +7,9 @@ from app.token import *
 from app.email import *
 from collections import defaultdict
 
+
 def subjects_from_file():
-    with open('subjects.csv','r', encoding="utf-8") as f:
+    with open('subjects.txt','r', encoding="utf-8") as f:
         subjects = f.readlines()
     # strip all new line characters
     subjects = [x.strip() for x in subjects]
@@ -20,6 +21,7 @@ def subjects_from_file():
 
     return subs
 
+
 def process_expertise_change(inputs):
     sent = []
     for i in inputs:
@@ -29,14 +31,12 @@ def process_expertise_change(inputs):
     user = User.query.get(current_user.id)
     current = user.fields.all()
 
-    # TODO MAKE THE APPEND/REMOVE MORE EFFICIENT --> use Counter?
     # checks the sent fields against current fields
     # looks for expertise that exist in sent but not in current fields
     # adds the new fields
     for s in sent:
         if s not in current:
             user.fields.append(s)
-
 
     # looks for expertise that exist in current but not in sent
     # removes them from current
@@ -48,7 +48,7 @@ def process_expertise_change(inputs):
 
 
 def create_new_request(form):
-    #get prefix + number and find the corresponding expertise
+    # get prefix + number and find the corresponding expertise
     prefix = form.c_prefix.data
     prefix = prefix.upper()
     number = int(form.c_number.data)
