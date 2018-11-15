@@ -13,7 +13,8 @@ Chinese,CHIN
 Cinema and Photography,CNPH
 Communication Studies,CMST
 Computer Science,COMP
-Culture and Communication,CLTC Culture Race and Ethnicity,CSCR
+Culture and Communication,CLTC 
+Culture Race and Ethnicity,CSCR
 Dance,DNCE
 Economics,ECON
 Education,EDUC
@@ -39,7 +40,8 @@ Jewish Studies,JWST
 Journalism,JOUR
 Languages,LNGS
 Latin,LATN
-Legal Studies,LGST Management,MGMT
+Legal Studies,LGST 
+Management,MGMT
 Marketing,MKTG
 Mathematics,MATH
 Media Arts Sciences & Studies,MASS

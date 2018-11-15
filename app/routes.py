@@ -31,7 +31,7 @@ def populate_expertise_table():
         db.session.add(n200)
         db.session.add(n300)
         db.session.add(n400)
-    db.session.commit()
+        db.session.commit()
 
 
 @app.route('/')

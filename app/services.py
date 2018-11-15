@@ -9,7 +9,7 @@ from collections import defaultdict
 
 
 def subjects_from_file():
-    with open('subjects.txt') as f:
+    with open('subjects.txt', encoding="utf-8") as f:
         subjects = f.readlines()
 
     # strip all new line characters
